@@ -10,20 +10,20 @@
 # end
 
 # Faster due to fewer special function calls
-function levi_13(x)
-    s = zero(eltype(x))
-    xᵢ = x[1]
-    v = sin(3π * xᵢ)
-    for i ∈ 2:length(x)
-        xᵢ₊₁ = x[i]
-        w = sin(3π * xᵢ₊₁)
-        u = sin(2π * xᵢ₊₁)
-        s += v * v + (xᵢ - 1)^2 * (1 + w * w) + (xᵢ₊₁ - 1)^2 * (1 + u * u)
-        xᵢ = xᵢ₊₁
-        v = w
-    end
-    s
-end
+# function levi_13(x)
+#     s = zero(eltype(x))
+#     xᵢ = x[1]
+#     v = sin(3π * xᵢ)
+#     for i ∈ 2:length(x)
+#         xᵢ₊₁ = x[i]
+#         w = sin(3π * xᵢ₊₁)
+#         u = sin(2π * xᵢ₊₁)
+#         s += v * v + (xᵢ - 1)^2 * (1 + w * w) + (xᵢ₊₁ - 1)^2 * (1 + u * u)
+#         xᵢ = xᵢ₊₁
+#         v = w
+#     end
+#     s
+# end
 
 # # Essentially the same as above
 # function levi_13_4(x)
@@ -45,3 +45,19 @@ end
 #     end
 #     s
 # end
+
+
+function levi_13(x)
+    s = zero(eltype(x))
+    xᵢ = x[firstindex(x)]
+    v = sin(3π * xᵢ)
+    @inbounds for i ∈ firstindex(x)+1:lastindex(x)
+        xᵢ₊₁ = x[i]
+        w = sin(3π * xᵢ₊₁)
+        u = sin(2π * xᵢ₊₁)
+        s += v * v + (xᵢ - 1)^2 * (1 + w * w) + (xᵢ₊₁ - 1)^2 * (1 + u * u)
+        xᵢ = xᵢ₊₁
+        v = w
+    end
+    s
+end

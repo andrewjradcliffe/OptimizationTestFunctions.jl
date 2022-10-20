@@ -26,13 +26,32 @@
 # end
 
 # fastest due to fewer special function calls
+# function cross_in_tray(x)
+#     s = zero(eltype(x))
+#     π⁻¹ = 1 / π
+#     xᵢ = x[1]
+#     vᵢ = xᵢ * xᵢ
+#     wᵢ = sin(xᵢ)
+#     for i ∈ 2:length(x)
+#         xᵢ₊₁ = x[i]
+#         vᵢ₊₁ = xᵢ₊₁ * xᵢ₊₁
+#         wᵢ₊₁ = sin(xᵢ₊₁)
+#         s += (abs(wᵢ * wᵢ₊₁ * exp(abs(100 - √(vᵢ + vᵢ₊₁) * π⁻¹))) + 1)^0.1
+#         xᵢ = xᵢ₊₁
+#         vᵢ = vᵢ₊₁
+#         wᵢ = wᵢ₊₁
+#     end
+#     -0.0001s
+# end
+
+# safety for arbitrary-indexed arrays
 function cross_in_tray(x)
     s = zero(eltype(x))
     π⁻¹ = 1 / π
-    xᵢ = x[1]
+    xᵢ = x[firstindex(x)]
     vᵢ = xᵢ * xᵢ
     wᵢ = sin(xᵢ)
-    for i ∈ 2:length(x)
+    @inbounds for i ∈ firstindex(x)+1:lastindex(x)
         xᵢ₊₁ = x[i]
         vᵢ₊₁ = xᵢ₊₁ * xᵢ₊₁
         wᵢ₊₁ = sin(xᵢ₊₁)

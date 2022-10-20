@@ -2,7 +2,7 @@
 function ackley(x)
     s₁ = zero(eltype(x))
     s₂ = zero(eltype(x))
-    for i ∈ eachindex(x)
+    @inbounds for i ∈ eachindex(x)
         s₁ += x[i]^2
         s₂ += cos(2π * x[i])
     end

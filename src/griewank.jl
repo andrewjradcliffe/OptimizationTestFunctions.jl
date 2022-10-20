@@ -12,7 +12,7 @@
 function griewank(x)
     s = zero(eltype(x))
     p = one(eltype(x))
-    for i ∈ eachindex(x)
+    @inbounds for i ∈ eachindex(x)
         s += x[i]^2
         p *= cos(x[i] / √i)
     end

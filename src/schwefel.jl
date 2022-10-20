@@ -25,7 +25,7 @@
 # Move the `-` outside and reduce by 33%
 function schwefel(x)
     s = zero(eltype(x))
-    for i ∈ eachindex(x)
+    @inbounds for i ∈ eachindex(x)
         s += x[i] * sin(√(abs(x[i])))
     end
     -s

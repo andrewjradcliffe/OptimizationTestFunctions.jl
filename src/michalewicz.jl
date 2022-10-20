@@ -26,7 +26,7 @@
 function michalewicz(x)
     s = zero(eltype(x))
     π⁻¹ = 1 / π
-    for i ∈ eachindex(x)
+    @inbounds for i ∈ eachindex(x)
         v = sin(i * x[i]^2 * π⁻¹)
         v² = v^2
         v⁴ = v²^2

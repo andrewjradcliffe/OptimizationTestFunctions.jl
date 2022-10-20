@@ -10,13 +10,34 @@
 # end
 
 # cuts ≈33% time
+# function easom(x)
+#     s = zero(eltype(x))
+#     xᵢ = x[1]
+#     cᵢ = cos(xᵢ)
+#     δᵢ = xᵢ - π
+#     δᵢ² = δᵢ * δᵢ
+#     for i ∈ 2:length(x)
+#         xᵢ₊₁ = x[i]
+#         δᵢ₊₁ = xᵢ₊₁ - π
+#         cᵢ₊₁ = cos(xᵢ₊₁)
+#         δᵢ₊₁² = δᵢ₊₁ * δᵢ₊₁
+#         s += cᵢ * cᵢ₊₁ * exp(-(δᵢ² + δᵢ₊₁²))
+#         xᵢ = xᵢ₊₁
+#         δᵢ = δᵢ₊₁
+#         cᵢ = cᵢ₊₁
+#         δᵢ² = δᵢ₊₁²
+#     end
+#     -s
+# end
+
+# removing bounds checks
 function easom(x)
     s = zero(eltype(x))
-    xᵢ = x[1]
+    xᵢ = x[firstindex(x)]
     cᵢ = cos(xᵢ)
     δᵢ = xᵢ - π
     δᵢ² = δᵢ * δᵢ
-    for i ∈ 2:length(x)
+    @inbounds for i ∈ firstindex(x)+1:lastindex(x)
         xᵢ₊₁ = x[i]
         δᵢ₊₁ = xᵢ₊₁ - π
         cᵢ₊₁ = cos(xᵢ₊₁)

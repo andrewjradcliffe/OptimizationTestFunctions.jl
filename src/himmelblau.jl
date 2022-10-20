@@ -1,10 +1,10 @@
-function himmelblau(x)
-    s = zero(eltype(x))
-    for i ∈ 1:length(x)-1
-        s += (x[i]^2 + x[i+1] - 11)^2 + (x[i] + x[i+1]^2 - 7)^2
-    end
-    s
-end
+# function himmelblau(x)
+#     s = zero(eltype(x))
+#     for i ∈ 1:length(x)-1
+#         s += (x[i]^2 + x[i+1] - 11)^2 + (x[i] + x[i+1]^2 - 7)^2
+#     end
+#     s
+# end
 
 # Slower here as no longer SIMD-able
 # function himmelblau2(x)
@@ -20,3 +20,11 @@ end
 #     end
 #     s
 # end
+
+function himmelblau(x)
+    s = zero(eltype(x))
+    @inbounds for i ∈ firstindex(x):lastindex(x)-1
+        s += (x[i]^2 + x[i+1] - 11)^2 + (x[i] + x[i+1]^2 - 7)^2
+    end
+    s
+end

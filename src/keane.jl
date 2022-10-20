@@ -2,7 +2,7 @@ function keane(x)
     s₁ = zero(eltype(x))
     s₂ = zero(eltype(x))
     p = one(eltype(x))
-    for i ∈ eachindex(x)
+    @inbounds for i ∈ eachindex(x)
         xᵢ = x[i]
         c = cos(xᵢ)
         c² = c * c
