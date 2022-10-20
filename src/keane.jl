@@ -1,10 +1,3 @@
-#
-# Date created: 2022-10-19
-# Author: aradclif
-#
-#
-############################################################################################
-
 function keane(x)
     s₁ = zero(eltype(x))
     s₂ = zero(eltype(x))

@@ -1,9 +1,3 @@
-#
-# Date created: 2022-10-18
-# Author: aradclif
-#
-#
-############################################################################################
 function sphere(x)
     s = zero(eltype(x))
     for i ∈ eachindex(x)

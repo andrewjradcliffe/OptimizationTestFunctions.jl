@@ -1,9 +1,3 @@
-#
-# Date created: 2022-10-18
-# Author: aradclif
-#
-#
-############################################################################################
 # function griewank(x)
 #     s = zero(eltype(x))
 #     p = one(eltype(x))

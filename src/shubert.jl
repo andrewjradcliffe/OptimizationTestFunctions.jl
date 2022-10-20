@@ -1,10 +1,3 @@
-#
-# Date created: 2022-10-19
-# Author: aradclif
-#
-#
-############################################################################################
-
 # the inner loop can be simplified, as shown below -- cuts time by 60%
 # function shubert(x)
 #     s = zero(eltype(x))

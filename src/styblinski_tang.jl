@@ -1,10 +1,4 @@
-#
-# Date created: 2022-10-18
-# Author: aradclif
-#
-#
-############################################################################################
-# function styblinski_tang(x)
+ function styblinski_tang(x)
 #     s = zero(eltype(x))
 #     for i ∈ eachindex(x)
 #         xᵢ = x[i]

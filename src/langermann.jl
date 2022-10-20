@@ -1,9 +1,3 @@
-#
-# Date created: 2022-10-18
-# Author: aradclif
-#
-#
-############################################################################################
 # Need to decide size
 # For fixed size, a = 3.6, b = 4.2, c = 2.6, m = 5
 function langermann_fixed(x)

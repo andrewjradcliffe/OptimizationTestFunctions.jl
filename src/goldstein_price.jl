@@ -1,9 +1,3 @@
-#
-# Date created: 2022-10-19
-# Author: aradclif
-#
-#
-############################################################################################
 # Something is not quite right?
 function goldstein_price(x)
     s = zero(eltype(x))

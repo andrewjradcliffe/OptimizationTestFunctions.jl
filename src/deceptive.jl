@@ -1,9 +1,3 @@
-#
-# Date created: 2022-10-18
-# Author: aradclif
-#
-#
-############################################################################################
 # Truly, horrible functions
 
 function g_deceptive(x, i)
