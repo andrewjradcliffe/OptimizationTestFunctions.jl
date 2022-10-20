@@ -1,15 +1,16 @@
-function easom(x)
-    s = zero(eltype(x))
-    for i ∈ 1:length(x)-1
-        δ₁ = x[i] - π
-        δ₂ = x[i+1] - π
-        s += cos(x[i]) * cos(x[i+1]) * exp(-δ₁ * δ₁ - δ₂ * δ₂)
-    end
-    -s
-end
+# Slower due to significant repetition of computation
+# function easom(x)
+#     s = zero(eltype(x))
+#     for i ∈ 1:length(x)-1
+#         δ₁ = x[i] - π
+#         δ₂ = x[i+1] - π
+#         s += cos(x[i]) * cos(x[i+1]) * exp(-δ₁ * δ₁ - δ₂ * δ₂)
+#     end
+#     -s
+# end
 
 # cuts ≈33% time
-function easom3(x)
+function easom(x)
     s = zero(eltype(x))
     xᵢ = x[1]
     cᵢ = cos(xᵢ)

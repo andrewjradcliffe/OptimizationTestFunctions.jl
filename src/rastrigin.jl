@@ -1,4 +1,4 @@
- function rastrigin(x)
+# function rastrigin(x)
 #     s = zero(eltype(x))
 #     for i ∈ eachindex(x)
 #         s += x[i]^2 - 10cos(2π * x[i])

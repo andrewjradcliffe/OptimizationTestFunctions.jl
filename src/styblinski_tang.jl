@@ -1,4 +1,4 @@
- function styblinski_tang(x)
+# function styblinski_tang(x)
 #     s = zero(eltype(x))
 #     for i ∈ eachindex(x)
 #         xᵢ = x[i]
@@ -26,5 +26,5 @@ function styblinski_tang(x)
         s₂ += xᵢ²
         s₃ += xᵢ
     end
-    (s₁ - 16s₂ + 5s₃) / 2
+    0.5 * (s₁ - 16s₂ + 5s₃)
 end
