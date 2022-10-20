@@ -1,0 +1,13 @@
+name = "OptimizationTestFunctions"
+uuid = "cd4f65ad-fe33-43f7-aff7-f8769dbe6900"
+authors = ["Andrew J. Radcliffe <andrewjradcliffe@gmail.com>"]
+version = "0.1.0"
+
+[compat]
+julia = "1"
+
+[extras]
+Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
+
+[targets]
+test = ["Test"]
