@@ -23,4 +23,9 @@ include("easom.jl")
 include("himmelblau.jl")
 include("levi.jl")
 
+export ackley, griewank, michalewicz, rastrigin, rosenbrock, schwefel, sphere,
+    axis_par_hyperellipsoid, rotated_hyperellipsoid, styblinski_tang,
+    sumofpowers, eggholder, keane, sine_envelope, rana, shubert, branin,
+    sixcamel, threecamel, cross_in_tray, dropwave, easom, himmelblau, levi_13
+
 end

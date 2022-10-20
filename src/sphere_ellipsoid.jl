@@ -6,7 +6,7 @@ function sphere(x)
     s
 end
 
-function axis_parallel_hyperellipsoid(x)
+function axis_par_hyperellipsoid(x)
     s = zero(eltype(x))
     for i ∈ eachindex(x)
         s += i * x[i]^2
