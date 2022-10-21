@@ -26,13 +26,14 @@
 # removing bounds checks
 function dropwave(x)
     s = zero(eltype(x)) / 1
+    c = one(eltype(x)) / 2
     xᵢ = x[firstindex(x)]
     vᵢ = xᵢ * xᵢ
     @inbounds for i ∈ firstindex(x)+1:lastindex(x)
         xᵢ₊₁ = x[i]
         vᵢ₊₁ = xᵢ₊₁ * xᵢ₊₁
         v = vᵢ + vᵢ₊₁
-        s += (1 + cos(12√v)) / (0.5v + 2)
+        s += (1 + cos(12√v)) / (c * v + 2)
         xᵢ = xᵢ₊₁
         vᵢ = vᵢ₊₁
     end

@@ -49,12 +49,14 @@
 
 function levi_13(x)
     s = zero(eltype(x)) / 1
+    π₂ = 2one(eltype(x)) * π
+    π₃ = 3one(eltype(x)) * π
     xᵢ = x[firstindex(x)]
-    v = sin(3π * xᵢ)
+    v = sin(π₃ * xᵢ)
     @inbounds for i ∈ firstindex(x)+1:lastindex(x)
         xᵢ₊₁ = x[i]
-        w = sin(3π * xᵢ₊₁)
-        u = sin(2π * xᵢ₊₁)
+        w = sin(π₃ * xᵢ₊₁)
+        u = sin(π₂ * xᵢ₊₁)
         s += v * v + (xᵢ - 1)^2 * (1 + w * w) + (xᵢ₊₁ - 1)^2 * (1 + u * u)
         xᵢ = xᵢ₊₁
         v = w

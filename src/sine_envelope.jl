@@ -57,8 +57,8 @@
 
 function sine_envelope(x)
     s = zero(eltype(x)) / 1
-    c = one(eltype(x)) / 2one(eltype(x))
-    d = one(eltype(x)) / 1000one(eltype(x))
+    c = one(eltype(x)) / 2
+    d = one(eltype(x)) / 1000
     xᵢ = x[firstindex(x)]
     vᵢ = xᵢ * xᵢ
     @inbounds for i ∈ firstindex(x)+1:lastindex(x)

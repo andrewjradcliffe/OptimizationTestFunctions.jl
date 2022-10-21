@@ -19,7 +19,7 @@ function styblinski_tang(x)
     s₁ = zero(eltype(x))
     s₂ = zero(eltype(x))
     s₃ = zero(eltype(x))
-    c = one(eltype(x)) / 2one(eltype(x))
+    c = one(eltype(x)) / 2
     @inbounds for i ∈ eachindex(x)
         xᵢ = x[i]
         xᵢ² = xᵢ^2

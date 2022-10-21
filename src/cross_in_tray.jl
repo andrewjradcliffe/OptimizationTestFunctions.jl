@@ -48,7 +48,8 @@
 function cross_in_tray(x)
     s = zero(eltype(x)) / 1
     π⁻¹ = one(eltype(x)) / π
-    e = one(eltype(x)) / 10one(eltype(x))
+    e = one(eltype(x)) / 10
+    c = -one(eltype(x)) / 10000
     xᵢ = x[firstindex(x)]
     vᵢ = xᵢ * xᵢ
     wᵢ = sin(xᵢ)
@@ -61,5 +62,5 @@ function cross_in_tray(x)
         vᵢ = vᵢ₊₁
         wᵢ = wᵢ₊₁
     end
-    -s / 10000
+    c * s
 end

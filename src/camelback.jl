@@ -56,7 +56,7 @@
 function sixcamel(x)
     s = zero(eltype(x)) / 1
     c = one(eltype(x)) / 3
-    b = 21one(eltype(x)) / 10one(eltype(x))
+    b = 21one(eltype(x)) / 10
     xᵢ = x[firstindex(x)]
     vᵢ = xᵢ * xᵢ
     vᵢ² = vᵢ * vᵢ
@@ -75,7 +75,7 @@ end
 function threecamel(x)
     s = zero(eltype(x)) / 1
     c = one(eltype(x)) / 6
-    b = 21one(eltype(x)) / 20one(eltype(x))
+    b = 21one(eltype(x)) / 20
     xᵢ = x[firstindex(x)]
     vᵢ = xᵢ * xᵢ
     @inbounds for i ∈ firstindex(x)+1:lastindex(x)
