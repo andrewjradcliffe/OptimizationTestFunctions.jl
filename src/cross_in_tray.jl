@@ -46,8 +46,9 @@
 
 # safety for arbitrary-indexed arrays
 function cross_in_tray(x)
-    s = zero(eltype(x))
-    π⁻¹ = 1 / π
+    s = zero(eltype(x)) / 1
+    π⁻¹ = one(eltype(x)) / π
+    e = one(eltype(x)) / 10one(eltype(x))
     xᵢ = x[firstindex(x)]
     vᵢ = xᵢ * xᵢ
     wᵢ = sin(xᵢ)
@@ -55,10 +56,10 @@ function cross_in_tray(x)
         xᵢ₊₁ = x[i]
         vᵢ₊₁ = xᵢ₊₁ * xᵢ₊₁
         wᵢ₊₁ = sin(xᵢ₊₁)
-        s += (abs(wᵢ * wᵢ₊₁ * exp(abs(100 - √(vᵢ + vᵢ₊₁) * π⁻¹))) + 1)^0.1
+        s += (abs(wᵢ * wᵢ₊₁ * exp(abs(100 - √(vᵢ + vᵢ₊₁) * π⁻¹))) + 1)^e
         xᵢ = xᵢ₊₁
         vᵢ = vᵢ₊₁
         wᵢ = wᵢ₊₁
     end
-    -0.0001s
+    -s / 10000
 end

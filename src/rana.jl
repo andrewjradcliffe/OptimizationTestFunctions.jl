@@ -38,7 +38,7 @@
 
 # Faster with combined computation
 function rana(x)
-    s = zero(eltype(x))
+    s = zero(eltype(x)) / 1
     xᵢ = x[firstindex(x)]
     @inbounds for i ∈ firstindex(x)+1:lastindex(x)
         xᵢ₊₁ = x[i]

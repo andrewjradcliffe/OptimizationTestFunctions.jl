@@ -25,7 +25,7 @@
 
 # removing bounds checks
 function dropwave(x)
-    s = zero(eltype(x))
+    s = zero(eltype(x)) / 1
     xᵢ = x[firstindex(x)]
     vᵢ = xᵢ * xᵢ
     @inbounds for i ∈ firstindex(x)+1:lastindex(x)

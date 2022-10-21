@@ -48,7 +48,7 @@
 
 
 function levi_13(x)
-    s = zero(eltype(x))
+    s = zero(eltype(x)) / 1
     xᵢ = x[firstindex(x)]
     v = sin(3π * xᵢ)
     @inbounds for i ∈ firstindex(x)+1:lastindex(x)

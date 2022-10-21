@@ -24,8 +24,8 @@
 
 # fastest
 function michalewicz(x)
-    s = zero(eltype(x))
-    π⁻¹ = 1 / π
+    s = zero(eltype(x)) / 1
+    π⁻¹ = one(eltype(x)) / π
     @inbounds for i ∈ eachindex(x)
         v = sin(i * x[i]^2 * π⁻¹)
         v² = v^2

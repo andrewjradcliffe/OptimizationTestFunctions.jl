@@ -51,7 +51,7 @@
 # end
 
 function shubert(x)
-    s = zero(eltype(x))
+    s = zero(eltype(x)) / 1
     xᵢ = x[firstindex(x)]
     s₁ = cos(2xᵢ + 1) + 2cos(3xᵢ + 1) + 3cos(4xᵢ + 1) + 4cos(5xᵢ + 1) + 5cos(6xᵢ + 1)
     @inbounds for i ∈ firstindex(x)+1:lastindex(x)

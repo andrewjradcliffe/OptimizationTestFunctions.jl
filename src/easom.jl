@@ -32,7 +32,7 @@
 
 # removing bounds checks
 function easom(x)
-    s = zero(eltype(x))
+    s = zero(eltype(x)) / 1
     xᵢ = x[firstindex(x)]
     cᵢ = cos(xᵢ)
     δᵢ = xᵢ - π

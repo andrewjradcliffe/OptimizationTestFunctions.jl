@@ -54,8 +54,9 @@
 
 # removing bounds, simplifying some subexpressions
 function sixcamel(x)
-    s = zero(eltype(x))
-    c = 1/3
+    s = zero(eltype(x)) / 1
+    c = one(eltype(x)) / 3
+    b = 21one(eltype(x)) / 10one(eltype(x))
     xᵢ = x[firstindex(x)]
     vᵢ = xᵢ * xᵢ
     vᵢ² = vᵢ * vᵢ
@@ -63,7 +64,7 @@ function sixcamel(x)
         xᵢ₊₁ = x[i]
         vᵢ₊₁ = xᵢ₊₁ * xᵢ₊₁
         vᵢ₊₁² = vᵢ₊₁ * vᵢ₊₁
-        s += (4 - 2.1vᵢ + vᵢ² * c) * vᵢ + xᵢ * xᵢ₊₁ + 4 * (vᵢ₊₁² - vᵢ₊₁)
+        s += (4 - b * vᵢ + vᵢ² * c) * vᵢ + xᵢ * xᵢ₊₁ + 4 * (vᵢ₊₁² - vᵢ₊₁)
         xᵢ = xᵢ₊₁
         vᵢ = vᵢ₊₁
         vᵢ² = vᵢ₊₁²
@@ -72,15 +73,16 @@ function sixcamel(x)
 end
 
 function threecamel(x)
-    s = zero(eltype(x))
-    c = 1/6
+    s = zero(eltype(x)) / 1
+    c = one(eltype(x)) / 6
+    b = 21one(eltype(x)) / 20one(eltype(x))
     xᵢ = x[firstindex(x)]
     vᵢ = xᵢ * xᵢ
     @inbounds for i ∈ firstindex(x)+1:lastindex(x)
         xᵢ₊₁ = x[i]
         vᵢ₊₁ = xᵢ₊₁ * xᵢ₊₁
         v² = vᵢ * vᵢ
-        s += 2vᵢ - 1.05v² + vᵢ * v² * c + xᵢ * xᵢ₊₁ + vᵢ₊₁
+        s += 2vᵢ - b * v² + vᵢ * v² * c + xᵢ * xᵢ₊₁ + vᵢ₊₁
         xᵢ = xᵢ₊₁
         vᵢ = vᵢ₊₁
     end

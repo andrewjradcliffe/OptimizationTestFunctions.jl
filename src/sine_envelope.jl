@@ -56,17 +56,19 @@
 
 
 function sine_envelope(x)
-    s = zero(eltype(x))
+    s = zero(eltype(x)) / 1
+    c = one(eltype(x)) / 2one(eltype(x))
+    d = one(eltype(x)) / 1000one(eltype(x))
     xᵢ = x[firstindex(x)]
     vᵢ = xᵢ * xᵢ
     @inbounds for i ∈ firstindex(x)+1:lastindex(x)
         xᵢ₊₁ = x[i]
         vᵢ₊₁ = xᵢ₊₁ * xᵢ₊₁
         v = vᵢ + vᵢ₊₁
-        w = sin(√v - 0.5) / (0.001 * v + 1)
+        w = sin(√v - c) / (d * v + 1)
         s += w * w
         xᵢ = xᵢ₊₁
         vᵢ = vᵢ₊₁
     end
-    -(0.5 * (length(x) - 1) + s)
+    -(c * (length(x) - 1) + s)
 end

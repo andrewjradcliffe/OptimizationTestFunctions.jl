@@ -32,12 +32,13 @@
 # end
 
 function eggholder(x)
-    s = zero(eltype(x))
+    s = zero(eltype(x)) / 1
+    c = one(eltype(x)) / 2
     xᵢ = x[firstindex(x)]
     @inbounds for i ∈ firstindex(x)+1:lastindex(x)
         xᵢ₊₁ = x[i]
         v = xᵢ₊₁ + 47
-        s += v * sin(√(abs(0.5 * xᵢ + v))) + xᵢ * sin(√(abs(xᵢ - v)))
+        s += v * sin(√(abs(c * xᵢ + v))) + xᵢ * sin(√(abs(xᵢ - v)))
         xᵢ = xᵢ₊₁
     end
     -s
