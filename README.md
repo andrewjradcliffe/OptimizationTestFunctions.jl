@@ -28,6 +28,9 @@ julia> griewank([1.0,2.0,3.0])
 1.0170279701835736
 ```
 
+## Future work
+Implement rest of functions from Jamil et al.
+
 ## References
 - Molga, Marcin, and Czesław Smutnicki. "Test functions for optimization needs." Test functions for optimization needs 101 (2005): 48.
 - Jamil, Momin, and Xin-She Yang. "A literature survey of benchmark functions for global optimization problems." arXiv preprint arXiv:1308.4008 (2013).
