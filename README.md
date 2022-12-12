@@ -29,7 +29,7 @@ julia> griewank([1.0,2.0,3.0])
 ```
 
 ## Future work
-Implement rest of functions from Jamil et al.
+Implement rest of functions from Jamil and Yang.
 
 ## References
 - Molga, Marcin, and Czesław Smutnicki. "Test functions for optimization needs." Test functions for optimization needs 101 (2005): 48.
